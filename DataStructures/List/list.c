@@ -16,25 +16,27 @@ struct node* insert_back(struct node*, int);
 struct node* delete_front(struct node*);
 struct node* delete_back(struct node*);
 struct node* return_front(struct node*);
-
+void delete_list(struct node*);
 int main() {
   struct node* l1;
   //is_empty(l1);
   l1 = insert_front(l1,1);
   l1 = insert_front(l1,2);
   //print_list(l1);
-  //l1 = insert_front(l1,3);
-  //l1 = insert_front(l1,5);
-  //l1 = insert_front(l1,6);
-  //l1 = insert_front(l1,7);
+  l1 = insert_front(l1,3);
+  l1 = insert_front(l1,5);
+  l1 = insert_front(l1,6);
+  l1 = insert_front(l1,7);
   //is_empty(l1);
-  //size(l1);  
+  size(l1);  
   //print_list(l1);   
   //insert_back(l1,4);
   //print_list(l1);
   //l1 = delete_front(l1);
-  //print_list(l1);
-  l1 = delete_back(l1);
+  print_list(l1);
+  delete_list(l1);
+  print_list(l1);
+  //l1 = delete_back(l1);
   return 0;   
 }
 
@@ -144,5 +146,19 @@ struct node* delete_back(struct node* start) {
     printf("no element found to delete, list is empty.\n");
   }
 }
+
+void delete_list(struct node* start) {
+  struct node* n;
+  struct node* temp;
+  temp = start;
+  start = NULL;
+  while (temp != NULL) {
+    n = temp->next;
+    free(temp);
+    temp = n;
+  }
+  printf("list is deleted.\n");
+  return;
+}//free(x): x still points to the same address but the data at that address is undefined.
 
 
