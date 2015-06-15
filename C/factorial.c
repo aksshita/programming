@@ -11,8 +11,8 @@ int main() {
   if(n < 0)
     printf("enter a positive integer.");
   else {
-  result = factorial_rec(n);
-  printf("factorial is: %ld\n", result);
+    result = factorial_rec(n);
+    printf("factorial is: %ld\n", result);
   }
   return 0;
 }
